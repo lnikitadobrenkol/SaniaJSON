@@ -1,0 +1,16 @@
+.getDuplicatesButton {
+    position: absolute;
+    top: 150px;
+    left: 870px;
+    font-size: 1.8em;
+    font-weight: 100;
+    background-color: #ffff80;
+    color: #444343;
+    border: 2px solid #4A4A4A;
+    padding: 10px;
+    cursor: pointer;
+}
+.getDuplicatesButton:hover {
+    background-color: white;
+    color: #444343;
+}

@@ -2,12 +2,12 @@
   "name": "sania_json",
   "description": "find_duplicates_keys_in_json",
   "version": "0.0.21",
-  "main": "app.js",
+  "main": "src/app.js",
   "engines": {
     "node": "^8.12.0"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",
