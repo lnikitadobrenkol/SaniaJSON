@@ -1,10 +1,11 @@
 const fs = require('fs');
 
-const input = fs.readFileSync('src/inputData/inputJson.json').toString().split(',');
 const clearInput = [];
 const output = {};
 
 module.exports = function(req, res) {
+    const input = fs.readFileSync('src/inputData/inputJson.json').toString().split(',');
+
     getClearArr(input);
     getDuplicates();
     writeToJson(output);
