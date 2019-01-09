@@ -13,18 +13,7 @@ $('#getButton').click(function getDuplicates() {
         method: 'POST',
         type: 'POST',
         success: function(){
-            $.ajax({
-                url: '/get-duplicates',
-                data: data,
-                cache: false,
-                contentType: false,
-                processData: false,
-                method: 'GET',
-                type: 'GET',
-                success: function(){
-                    location.href = "/download";
-                }
-            });
+                location.href = "/download";
         }
     });
     return false;

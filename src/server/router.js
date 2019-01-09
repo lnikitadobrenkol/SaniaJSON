@@ -1,11 +1,11 @@
 const uploadController = require('./controllers/uploadController');
-const duplicatesController = require('./controllers/duplicatesController');
+const mainPageController = require('./controllers/mainPageController');
 const downloadController = require('./controllers/downloadController');
 
 module.exports = function router(app) {
-    app.post("/Upload", uploadController);
+    app.get("/", mainPageController);
 
-    app.get("/get-duplicates", duplicatesController);
+    app.post("/Upload", uploadController);
 
     app.get("/download", downloadController);
 };
