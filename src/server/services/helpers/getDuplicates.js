@@ -1,6 +1,7 @@
 module.exports = function getDuplicates(cleanedArray) {
     let duplicatesObject = {};
-    if (Array.isArray(cleanedArray)) {
+    if ( Array.isArray(cleanedArray) ) {
+        if ( Array.isArray(cleanedArray[0]) ) {
         duplicatesObject[cleanedArray[0][0]] = cleanedArray[0][1];
 
         for (let i = 1; i <= (cleanedArray.length - 1); i++) {
@@ -24,6 +25,9 @@ module.exports = function getDuplicates(cleanedArray) {
             }
         }
         return duplicatesObject;
+    }  else {
+            throw new Error('Cleaned array is not dose not consist from arrays, but should be, fix it...');
+        }
     } else {
         throw new Error('Cleaned array is not actually an array, i can not work in such conditions...');
     }
