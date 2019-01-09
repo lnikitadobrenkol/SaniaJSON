@@ -1,5 +1,5 @@
 const fs = require('fs');
-const indexFilePath = "./src/dataBase/file-indexData.json";
+const indexFilePath = './src/dataBase/fileIndexData.json';
 
 let indexObject;
 let indexString;
@@ -10,7 +10,7 @@ module.exports = function downloadIndex() {
     try {
         indexObject = JSON.parse(indexData);
     } catch (error) {
-        console.error("Sorry, i can`t parse to JSON indexDATA file. \n" + error);
+        throw new Error (`Sorry, i can not parse to JSON indexDATA file. \n ${error}`)
     }
 
     let currentFileIndex = indexObject.currentIndex;
@@ -22,7 +22,7 @@ module.exports = function downloadIndex() {
     try {
         indexString = JSON.stringify(indexObject, null, 2);
     } catch (error) {
-        console.error("Sorry, i can`t parse to JSON indexDATA file. \n" + error);
+        throw new Error (`Sorry, i can not parse to JSON indexDATA file. \n ${error}`)
     }
 
     fs.writeFileSync(indexFilePath, indexString, 'utf8');
