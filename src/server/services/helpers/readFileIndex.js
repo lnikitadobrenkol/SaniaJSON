@@ -3,7 +3,7 @@ module.exports = function readFileIndex (indexData) {
     try {
         indexObject = JSON.parse(indexData)
     } catch (error) {
-        console.error("Sorry, i can`t parse to JSON indexDATA file. \n" + error);
+        throw new Error (`Sorry, i can not parse to JSON indexDATA file. \n ${error}`)
     }
 
     return indexObject.currentIndex;

@@ -1,26 +1,30 @@
 module.exports = function getDuplicates(cleanedArray) {
     let duplicatesObject = {};
-    duplicatesObject[cleanedArray[0][0]] = cleanedArray[0][1];
+    if (Array.isArray(cleanedArray)) {
+        duplicatesObject[cleanedArray[0][0]] = cleanedArray[0][1];
 
-    for (let i = 1; i <= (cleanedArray.length - 1); i++) {
-        let nextItem = {};
-        nextItem[cleanedArray[i][0]] = cleanedArray[i][1];
-        let previousItem = {};
-        previousItem[cleanedArray[i - 1][0]] = cleanedArray[i - 1][1];
+        for (let i = 1; i <= (cleanedArray.length - 1); i++) {
+            let nextItem = {};
+            nextItem[cleanedArray[i][0]] = cleanedArray[i][1];
+            let previousItem = {};
+            previousItem[cleanedArray[i - 1][0]] = cleanedArray[i - 1][1];
 
-        for (let nextKey in nextItem) {
-            let thisNextKey = nextKey;
+            for (let nextKey in nextItem) {
+                let thisNextKey = nextKey;
 
-            for (let previousKey in previousItem) {
-                if (nextKey === previousKey) {
-                    nextKey = i + '_' + nextKey;
+                for (let previousKey in previousItem) {
+                    if (nextKey === previousKey) {
+                        nextKey = i + '_' + nextKey;
 
-                    duplicatesObject[nextKey] = nextItem[thisNextKey];
-                } else {
-                    duplicatesObject[nextKey] = nextItem[nextKey];
+                        duplicatesObject[nextKey] = nextItem[thisNextKey];
+                    } else {
+                        duplicatesObject[nextKey] = nextItem[nextKey];
+                    }
                 }
             }
         }
+        return duplicatesObject;
+    } else {
+        throw new Error('Cleaned array is not actually an array, i can not work in such conditions...');
     }
-    return duplicatesObject;
 };

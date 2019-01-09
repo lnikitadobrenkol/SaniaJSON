@@ -10,5 +10,5 @@ app.use(express.static('src/public'));
 
 const server = app.listen(2000, () => {
     const port = server.address().port;
-    console.log('Listening at http://' + 'localhost' +  ':' + port);
+    console.log(`Listening at http://localhost:${port}`);
 });
