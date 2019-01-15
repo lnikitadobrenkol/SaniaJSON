@@ -1,17 +1,17 @@
 const fs = require('fs');
 const getFileIndex = require('../services/helpers/readFileIndex');
 
-const indexFilePath = './src/dataBase/fileIndexData.json';
-
 module.exports = function (req, res) {
-    const indexData = fs.readFileSync(indexFilePath);
-    const currentIndex = getFileIndex(indexData);
+    getFileIndex()
+        .then((index) => {
+            const filePath = `src/outputData/duplicates_(${index}).json`;
+            const fileName = `duplicates_(${index}).json`;
 
-    const filePath = `src/outputData/duplicates_(${currentIndex}).json`;
-    const fileName = `duplicates_(${currentIndex}).json`;
+            res.download(filePath, fileName, function () {
+                fs.unlinkSync(`src/inputData/duplicates_(${index}).json`);
+                fs.unlinkSync(`src/outputData/duplicates_(${index}).json`);
+            });
+        })
+        .catch((err) => console.log(err));
 
-    res.download(filePath, fileName, function () {
-        fs.unlinkSync(`src/inputData/duplicates_(${currentIndex}).json`);
-        fs.unlinkSync(`src/outputData/duplicates_(${currentIndex}).json`);
-    });
 };
