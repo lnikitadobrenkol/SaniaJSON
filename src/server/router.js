@@ -8,5 +8,4 @@ module.exports = function router(app) {
     app.get('/download', downloadController);
 
     app.post('/upload', uploadController);
-
 };

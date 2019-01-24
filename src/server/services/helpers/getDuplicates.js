@@ -1,31 +1,20 @@
-module.exports = function getDuplicates(cleanedArray) {
-    let duplicatesObject = {};
-    if ( Array.isArray(cleanedArray) ) {
-        if ( Array.isArray(cleanedArray[0]) ) {
-        duplicatesObject[cleanedArray[0][0]] = cleanedArray[0][1];
+module.exports = function getDuplicates(data) {
+    let duplicates = {};
+    if ( Array.isArray(data) ) {
+        if ( Array.isArray(data[0]) ) {
+            duplicates[data[0][0]] = data[0][1];
 
-        for (let i = 1; i <= (cleanedArray.length - 1); i++) {
-            let nextItem = {};
-            nextItem[cleanedArray[i][0]] = cleanedArray[i][1];
-            let previousItem = {};
-            previousItem[cleanedArray[i - 1][0]] = cleanedArray[i - 1][1];
+            for (let i = 1; i <= data.length - 1; i++) {
+                const row = data[i];
+                const prevRow = data[i - 1];
+                const value = row[1];
 
-            for (let nextKey in nextItem) {
-                let thisNextKey = nextKey;
-
-                for (let previousKey in previousItem) {
-                    if (nextKey === previousKey) {
-                        nextKey = i + '_' + nextKey;
-
-                        duplicatesObject[nextKey] = nextItem[thisNextKey];
-                    } else {
-                        duplicatesObject[nextKey] = nextItem[nextKey];
-                    }
-                }
+                const key = row[0] === prevRow[0] ? `${i}_${row[0]}` : row[0];
+                duplicates[key] = value;
             }
-        }
-        return duplicatesObject;
-    }  else {
+
+            return duplicates;
+        }  else {
             throw new Error('Cleaned array is not dose not consist from arrays, but should be, fix it...');
         }
     } else {

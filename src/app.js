@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const app = express();
 router(app);
 
-app.use(bodyParser.json());
-app.use(express.static('src/public'));
+app.use( bodyParser.json() );
+app.use( express.static('src/public') );
 
 const server = app.listen(2000, () => {
     const port = server.address().port;

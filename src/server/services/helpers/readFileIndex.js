@@ -1,11 +1,24 @@
-module.exports = function readFileIndex (indexData) {
-    let indexObject = {};
-    try {
-        indexObject = JSON.parse(indexData)
-    } catch (error) {
-        throw new Error (`Sorry, i can not parse to JSON indexDATA file. \n ${error}`)
-    }
+const fs = require('fs');
 
-    return indexObject.currentIndex;
+const indexFilePath = './src/dataBase/fileIndexData.json';
+
+module.exports = function readFileIndex () {
+    return new Promise((resolve, reject) => {
+        fs.readFile(indexFilePath, function read(err, indexData) {
+            let indexObject = {};
+
+            if (err) {
+                reject(err);
+                return;
+            }
+            try {
+                indexObject = JSON.parse(indexData)
+            } catch (error) {
+                reject(new Error(`Sorry, i can not parse to JSON indexDATA file. \n ${error}`));
+            }
+
+            resolve(indexObject.currentIndex);
+        });
+    });
 };
 
