@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "main": "src/app.js",
   "engines": {
-    "node": "^8.12.0"
+    "node": ">=8.0.0"
   },
   "scripts": {
     "start": "node src/app.js",
