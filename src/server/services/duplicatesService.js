@@ -6,7 +6,7 @@ const getFileIndex = require('./helpers/readFileIndex');
 const inputFilePath = 'src/inputData/';
 const outputFilePath = 'src/outputData/';
 
-module.exports = function() {
+module.exports = function duplicatesService() {
     let fileName = '';
     let inputArr;
     let cleanedInputArr;
