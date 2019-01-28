@@ -11,7 +11,6 @@ const filePath = 'src/inputData';
         filename: function(req, file, callback) {
             currentFileIndex()
                 .then((index) => {
-                    console.log(index);
                     callback(null, 'duplicates_(' + index + ').json')
                 });
         }
