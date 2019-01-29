@@ -1,4 +1,4 @@
-require('@google-cloud/debug-agent').start();
+// require('@google-cloud/debug-agent').start();
 
 const express = require('express');
 const router = require('./server/router');
