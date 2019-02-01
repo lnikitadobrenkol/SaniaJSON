@@ -3,18 +3,18 @@
     height: 0.1px;
     opacity: 0;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     z-index: -1;
 }
 
 .uploader + label {
-    position: absolute;
-    top: 150px;
-    right: 935px;
+    position: relative;
+    top: 153px;
+    left: 200px;
     max-width: 80%;
     font-size: 1.25rem;
     /* 20px */
-    font-weight: 600;
+    font-weight: 700;
     text-overflow: ellipsis;
     white-space: nowrap;
     cursor: pointer;
@@ -26,12 +26,6 @@
 
 .no-js .uploader + label {
     display: none;
-}
-
-.uploader:focus + label,
-.uploader.has-focus + label {
-    outline: 1px dotted #000;
-    outline: -webkit-focus-ring-color auto 5px;
 }
 
 .uploader + label svg {

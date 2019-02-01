@@ -1,5 +1,5 @@
 .infoButton {
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 16px;
     background-color: #ffff80;

@@ -1,7 +1,7 @@
 .getDuplicatesButton {
-    position: absolute;
+    position: fixed;
     top: 150px;
-    left: 870px;
+    left: 880px;
     font-size: 1.8em;
     font-weight: 100;
     background-color: #ffff80;
